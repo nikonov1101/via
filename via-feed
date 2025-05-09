@@ -1,12 +1,11 @@
 #!/bin/bash
 
-cache="$HOME/.cache/via"
+echo "ii - ideas"
+echo "rr - notes"
+echo "rs - rss reader"
+echo "ch - chatgpt"
 
-if [[ "$1" == "-r" ]] || [[ ! -e "$cache" ]]; then
-	cat "$HOME/.config/via/shortcuts" > "$cache"
-	cat "$HOME/.config/via/websites" >> "$cache"
-	find "$HOME" -mindepth 1 \( -name ".*" -o -path "$HOME/code/*" \) -prune -o -print | sort >> "$cache"
-fi
+wmctrl -l | cut -d' ' -f1,5-
+find /usr/share/applications $HOME/.local/share/applications \
+    -maxdepth 1 -type f -name '*.desktop' -printf '%f\n'
 
-wmctrl -xl | sed "s/^[^.]*\.//;s/ \+\S\+ \+/ /;s/^/w /;s/ \+/ /g"
-cat "$cache"
