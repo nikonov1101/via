@@ -25,7 +25,7 @@ while read -r arg; do
             gtk-launch "$arg" &
             ;;
 		*)
-            xdg-open "$arg" &
+            xdg-open "https://www.google.com/search?q=$arg" &
             ;;
 	esac
 done
