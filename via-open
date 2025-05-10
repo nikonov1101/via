@@ -21,6 +21,9 @@ while read -r arg; do
         ch*)
             /usr/bin/firefox -new-tab "https://chatgpt.com/?temporary-chat=true&model=o3-mini"
             ;;
+        ed*)
+            /usr/bin/firefox -new-tab "https://excalidraw.com/"
+            ;;
         *.desktop)
             gtk-launch "$arg" &
             ;;

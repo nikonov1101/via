@@ -4,6 +4,7 @@ echo "ii - ideas"
 echo "rr - notes"
 echo "rs - rss reader"
 echo "ch - chatgpt"
+echo "ed - excalidraw"
 
 wmctrl -l | cut -d' ' -f1,5-
 find /usr/share/applications $HOME/.local/share/applications \
