@@ -5,10 +5,13 @@ exec &> /dev/null
 while read -r arg; do
 	# first try matching by filename or pathname
 	case "${arg,,}" in
-		0x*)
-			target=$(echo "$arg"|cut -d' ' -f1)
-            xdotool windowfocus "$target" &
+		wi\:*)
+			target=$(echo "$arg"|cut -d' ' -f2-)
+            DISPLAY=":0.0" /usr/bin/xdotool search --desktop 0 --limit 1 --name "$target" windowfocus
 			;;
+        da*)
+            /usr/bin/firefox -new-tab http://192.168.1.222:3000/d/ceiwfytnasbnkf/important?orgId=1&from=now-24h&to=now&timezone=browser&refresh=30s
+            ;;
         ii*)
             /usr/bin/firefox -new-tab https://notes.nikonov.tech/ideas_inbox
             ;;

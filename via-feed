@@ -5,8 +5,9 @@ echo "rr - notes"
 echo "rs - rss reader"
 echo "ch - chatgpt"
 echo "ed - excalidraw"
+echo "da - dashboards"
 
-wmctrl -l | cut -d' ' -f1,5-
+wmctrl -l | cut -d' ' -f5- | sed -e 's/^/wi: /'
 find /usr/share/applications $HOME/.local/share/applications \
     -maxdepth 1 -type f -name '*.desktop' -printf '%f\n'
 
